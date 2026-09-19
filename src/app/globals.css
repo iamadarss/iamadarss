@@ -248,5 +248,25 @@
 
 /* Smooth Magnetic Transition */
 .transition-magnetic {
-  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease;
+  transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.12s ease;
+}
+
+/* Hyper-Fast Interactive Button Animations */
+button,
+a.cursor-pointer,
+.btn-interactive {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.12s ease, background-color 0.12s ease !important;
+}
+
+button:hover,
+a.cursor-pointer:hover,
+.btn-interactive:hover {
+  transform: translateY(-2px) scale(1.025);
+  box-shadow: 0 6px 20px -4px rgba(244, 81, 42, 0.35);
+}
+
+button:active,
+a.cursor-pointer:active,
+.btn-interactive:active {
+  transform: translateY(0) scale(0.96) !important;
 }

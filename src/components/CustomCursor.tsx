@@ -140,18 +140,19 @@ export function CustomCursor() {
       const dx = targetX - t.x;
       const dy = targetY - t.y;
 
-      t.vx = dx * 0.24;
-      t.vy = dy * 0.24;
+      // Hyper-fast snappy trailing physics
+      t.vx = dx * 0.46;
+      t.vy = dy * 0.46;
       t.x += t.vx;
       t.y += t.vy;
 
       const speed = Math.sqrt(t.vx * t.vx + t.vy * t.vy);
       const angle = Math.atan2(t.vy, t.vx);
 
-      // Stretch along velocity vector
-      const stretch = Math.min(speed / 16, 0.5);
+      // Fast directional stretch
+      const stretch = Math.min(speed / 14, 0.45);
       const scaleX = 1 + stretch;
-      const scaleY = Math.max(0.6, 1 - stretch * 0.5);
+      const scaleY = Math.max(0.65, 1 - stretch * 0.5);
 
       if (cursorRingRef.current) {
         cursorRingRef.current.style.transform = `translate3d(${t.x}px, ${t.y}px, 0) translate(-50%, -50%) rotate(${angle}rad) scale(${scaleX}, ${scaleY})`;

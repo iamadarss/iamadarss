@@ -39,7 +39,7 @@ export function CyberText({
       );
 
       if (iteration < maxIterations) {
-        iteration += 1 / 3;
+        iteration += 1;
         frameRef.current = requestAnimationFrame(scramble);
       } else {
         setDisplayText(text);

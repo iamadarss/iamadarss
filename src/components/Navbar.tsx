@@ -125,7 +125,9 @@ export function Navbar() {
           {/* Top Right Utilities & CTA */}
           <div className="pointer-events-auto flex items-center gap-2">
             {/* Theme Toggle Button */}
-            <ThemeToggle />
+            <Magnetic strength={0.35} radius={65}>
+              <ThemeToggle />
+            </Magnetic>
 
             {/* Resume Button */}
             <Magnetic strength={0.3} radius={60}>

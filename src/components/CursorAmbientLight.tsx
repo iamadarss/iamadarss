@@ -77,9 +77,9 @@ export function CursorAmbientLight() {
     }
 
     const render = () => {
-      // Smooth interpolation
-      mouseX += (targetX - mouseX) * 0.08;
-      mouseY += (targetY - mouseY) * 0.08;
+      // Fast smooth interpolation
+      mouseX += (targetX - mouseX) * 0.22;
+      mouseY += (targetY - mouseY) * 0.22;
 
       ctx.clearRect(0, 0, width, height);
 

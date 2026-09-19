@@ -6,9 +6,15 @@ interface MagneticProps {
   children: React.ReactElement<{ style?: React.CSSProperties; className?: string }>;
   strength?: number; // 0.1 to 0.8
   radius?: number; // attraction radius in px
+  scaleOnHover?: boolean;
 }
 
-export function Magnetic({ children, strength = 0.35, radius = 70 }: MagneticProps) {
+export function Magnetic({
+  children,
+  strength = 0.45,
+  radius = 90,
+  scaleOnHover = true,
+}: MagneticProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -54,8 +60,12 @@ export function Magnetic({ children, strength = 0.35, radius = 70 }: MagneticPro
     <div
       ref={ref}
       style={{
-        transform: `translate3d(${position.x}px, ${position.y}px, 0)`,
-        transition: isHovered ? "transform 0.15s cubic-bezier(0.2, 0, 0, 1)" : "transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        transform: `translate3d(${position.x}px, ${position.y}px, 0) scale(${
+          scaleOnHover && isHovered ? 1.04 : 1
+        })`,
+        transition: isHovered
+          ? "transform 0.08s cubic-bezier(0.1, 0.9, 0.2, 1)"
+          : "transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
       }}
       className="inline-block will-change-transform"
     >

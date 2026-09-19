@@ -66,7 +66,7 @@ export function TiltCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative preserve-3d transition-transform duration-200 ease-out will-change-transform ${className}`}
+      className={`relative preserve-3d transition-transform duration-75 ease-out will-change-transform ${className}`}
       style={{
         transform: isHovered
           ? `perspective(1000px) rotateX(${tilt.rotateX.toFixed(2)}deg) rotateY(${tilt.rotateY.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`
