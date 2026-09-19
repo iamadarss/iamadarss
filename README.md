@@ -1,224 +1,157 @@
 <div align="center">
 
-# ⚡ Adarsh Patel — Interactive Developer Portfolio
+  <h1>⚡ Adarsh Patel — Portfolio & Showcase</h1>
 
-> **Software Developer • Web Developer • Python & Automation Specialist**  
-> An interactive personal developer portfolio combining editorial typography, cyber-tech aesthetics, 3D perspective wireframe visuals, and production-ready performance.
+  <p><strong>Software Developer • Web Developer • Python & Automation Specialist</strong></p>
+  <p>An interactive, high-performance personal portfolio built with Next.js 16 (Turbopack), React 19, TypeScript, and modern Cyber-Tech aesthetics.</p>
 
-[![Next.js 15](https://img.shields.io/badge/Next.js-15.3-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-F4512A?style=for-the-badge)](LICENSE)
+  <p>
+    <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16.3-black?style=for-the-badge&logo=next.js" alt="Next.js 16" /></a>
+    <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+    <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS v4" /></a>
+    <a href="https://vercel.com/"><img src="https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel" alt="Vercel" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-F4512A?style=for-the-badge" alt="License: MIT" /></a>
+  </p>
 
-[🌐 Live Portfolio](https://iamadarss.vercel.app/) • [📄 ATS Resume](https://iamadarss.vercel.app/resume) • [💼 LinkedIn](https://linkedin.com/in/iamadarss) • [📸 Instagram](https://instagram.com/iamadarss) • [✉️ Email Me](mailto:adarshpatel8738@gmail.com)
+  <p>
+    <a href="https://iamadarss.vercel.app/"><strong>🌐 Live Portfolio</strong></a> •
+    <a href="https://iamadarss.vercel.app/resume"><strong>📄 ATS Resume</strong></a> •
+    <a href="https://github.com/iamadarss"><strong>💻 GitHub</strong></a> •
+    <a href="https://linkedin.com/in/iamadarss"><strong>💼 LinkedIn</strong></a> •
+    <a href="https://instagram.com/iamadarss"><strong>📸 Instagram</strong></a> •
+    <a href="mailto:adarshpatel8738@gmail.com"><strong>✉️ Email Me</strong></a>
+  </p>
 
 </div>
 
 ---
 
-## 👨‍💻 About Adarsh Patel
+## 👨‍💻 Overview & Bio
 
-BCA student seeking entry-level **Software Developer** or **Web Developer** opportunities. Proficient in **Object-Oriented Programming (OOP)**, **Data Structures**, and **Algorithms** using **C, C++, and Python**. Experienced in front-end web development with **HTML, CSS, JavaScript, and responsive design**. Skilled in version control (**Git/GitHub**), debugging, and problem-solving. Passionate about developing scalable software solutions, web applications, and automation tools while adhering to best practices in coding and software development.
+Hi! I'm **Adarsh Patel** (`@iamadarss`), a Software & Web Developer based in Kanpur, India. I specialize in building performant web applications, responsive user interfaces, robust automation pipelines, and scalable software solutions with clean, maintainable architecture.
 
-- **📍 Location**: Kanpur, Uttar Pradesh, India • Available Globally & Remote
-- **🎓 Education**: Bachelor of Computer Applications (BCA), College of Management Studies (CSJM University) — **CGPA: 7.90**
-- **📜 Certifications**: Network Security Engineer • AI DevOps Analyst
-- **🛠️ Core Competencies**: OOP, Problem-Solving, Data Structures & Algorithms, API Integration, Version Control
-
----
-
-## ✦ Key Features
-
-- **Dynamic Aesthetics & Layout**:
-  - Warm light-mode aesthetic (`#E8E6E7`) with a cyber-dark mode (`#0D0D11`).
-  - Signature vibrant orange accent (`#F4512A`) with interactive glow states.
-  - Floating frosted glassmorphism pill navigation with active route detection and mobile drawer.
-  - Interactive 3D perspective room wireframe canvas reacting in real-time to mouse coordinates.
-  - Stylized 3D developer character avatar of Adarsh Patel centered between the 3D room and giant background typography.
-  - Infinite angled ticker marquee (`SOFTWARE DEVELOPER ✦ C / C++ ✦ PYTHON ✦ WEB APPLICATIONS ✦ ...`).
-- **ATS-Friendly Resume (`/resume`)**:
-  - Direct web curriculum vitae matching Adarsh Patel's verified academic and technical credentials.
-  - Print-optimized layout (`@media print`) and 1-click PDF export action.
-- **Featured Software Showcase (`/projects` & `/projects/[slug]`)**:
-  - **Weather Application**: Front-end web development project demonstrating real-time weather API integration, dynamic DOM manipulation, and responsive design.
-  - **YouTube Long-to-Shorts Automation**: Python automation tool utilizing audio analysis, video processing, and scripting to generate vertical short-form media.
-  - **QR Attendance ERP**: Enterprise-grade academic attendance automation using rotating dynamic QR validation.
-  - **Linkly URL Shortener**: High-speed URL condensing service with live click telemetry and branded QR code generation.
-  - **AuraOS**: Experimental web desktop operating system with multitasking windows, terminal emulator, and virtual filesystem.
-  - Comprehensive problem/solution/architecture breakdown, metrics, and direct live demo & GitHub buttons.
-- **Interactive Laboratory (`/lab`)**:
-  - Live Cryptographic Cipher Playground (ROT13, Base64, Hex, Binary keystream encoder).
-  - Network Packet Telemetry Simulator with pause/resume and intrusion detection heuristics.
-  - Interactive Gaussian Data Distribution plot with real-time mean and variance sliders.
-- **Command Palette (`Ctrl + K` / `Cmd + K`)**:
-  - Keyboard-first command menu for rapid navigation across all 15+ routes, social shortcuts, and actions.
-- **Editorial Contact Hub (`/contact`)**:
-  - 1-click clipboard email copy (`adarshpatel8738@gmail.com`) with instant feedback.
-  - Validated interactive contact form with status feedback.
-- **Developer Easter Eggs**:
-  - Type `"adarsh"` or `"adarss"`, or enter the Konami code (`↑ ↑ ↓ ↓ ← → ← → B A`) to trigger celebratory confetti.
-- **Accessibility & SEO**:
-  - 100% semantic HTML5, accessible ARIA roles, visible focus rings, and `prefers-reduced-motion` compliance.
-  - Comprehensive JSON-LD Person & WebSite schemas, dynamic sitemap (`/sitemap.xml`), and robots rules (`/robots.txt`).
+- 🎓 **Education**: Bachelor of Computer Applications (BCA), College of Management Studies, CSJM University (**CGPA: 7.90**)
+- 📍 **Location**: Kanpur, Uttar Pradesh, India (Open to Remote & Global opportunities)
+- 📜 **Certifications**: Network Security Engineer • AI DevOps Analyst
+- 🎯 **Focus Areas**: Full-Stack Web Development, Algorithm Design, API Engineering, Video & Data Automation
 
 ---
 
-## 🛠️ Technical Stack
+## ✨ Key Interactive Highlights
 
-| Layer | Technologies |
-|---|---|
-| **Core Framework** | [Next.js 15+](https://nextjs.org/) (App Router, Server & Client Components) |
-| **Language** | [TypeScript](https://www.typescriptlang.org/) (Strict Mode) |
-| **Styling & UI** | [Tailwind CSS v4](https://tailwindcss.com/) with custom CSS design tokens |
-| **Icons** | [Lucide React](https://lucide.dev/) |
-| **Motion & Canvas** | HTML5 2.5D/3D Wireframe Canvas, Canvas Confetti |
-| **Deployment** | [Vercel](https://vercel.com/) |
+- ⚡ **Interactive Avatar Overdrive**: Clicking the hero avatar triggers a real-time Web Audio API synthesized sci-fi sound fx, 360° spin overdrive, shockwave pulse, combo badges, and mobile haptic feedback.
+- 🛡️ **Anti-Copy Protection**: Integrated protective layer preventing unauthorized copying, right-click, and code theft with dynamic cyberpunk toast notifications.
+- 🎨 **Neo-Cyber Minimal Aesthetic**: Curated warm light mode (`#E8E6E7`) alongside an immersive cyber dark mode (`#0D0D11`) with vibrant electric orange (`#F4512A`) accents.
+- 📐 **Interactive 3D Wireframe Canvas**: Real-time perspective 3D room canvas responding dynamically to cursor position and viewport tilt.
+- 📄 **ATS-Optimized Interactive Resume**: Built-in `/resume` with direct web layout, 1-click clean PDF export, and verified credentials.
+- 🕹️ **Developer Easter Eggs**: Keystroke listeners for `"adarsh"`, `"adarss"`, and the classic Konami code (`↑ ↑ ↓ ↓ ← → ← → B A`) firing canvas confetti.
+- 🏎️ **Turbopack Performance**: Zero layout shifts (CLS: 0.00), optimal Largest Contentful Paint (LCP), and 100% semantic HTML5.
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Tech Stack & Toolkit
+
+### Languages & Core
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+
+### Frameworks & Libraries
+![Next.js 16](https://img.shields.io/badge/Next.js_16-000000?style=flat-square&logo=next.js&logoColor=white)
+![React 19](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+![Lucide Icons](https://img.shields.io/badge/Lucide_React-F4512A?style=flat-square&logo=feather&logoColor=white)
+
+### Tools & DevOps
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+
+---
+
+## 🚀 Featured Projects
+
+| Project | Description | Tech Stack | Links |
+| :--- | :--- | :--- | :--- |
+| **QR Attendance ERP** | Enterprise academic attendance automation using rotating dynamic QR validation. | Next.js, Node.js, QR Telemetry | [Details](https://iamadarss.vercel.app/projects/qr-attendance-erp) |
+| **YouTube Shorts Automation** | Automated Python pipeline utilizing audio-video analysis to generate vertical shorts. | Python, FFmpeg, MoviePy | [Details](https://iamadarss.vercel.app/projects/youtube-shorts-automation) |
+| **Interactive Weather App** | Real-time weather dashboard featuring live open APIs, dynamic DOM, and glassmorphic UI. | JavaScript, CSS3, OpenWeather API | [Details](https://iamadarss.vercel.app/projects/weather-application) |
+| **Linkly URL Shortener** | Ultra-fast link condensing utility with live telemetry click analytics and QR generation. | TypeScript, Next.js, Analytics | [Details](https://iamadarss.vercel.app/projects/linkly-url-shortener) |
+| **AuraOS Web Desktop** | Web-based desktop operating system simulator with window manager, filesystem, and terminal. | React, Canvas, Web Audio API | [Details](https://iamadarss.vercel.app/projects/auraos) |
+
+---
+
+## 📁 Project Architecture
 
 ```text
-├── public/
-│   ├── images/
-│   │   ├── adarsh_hero.jpg      # 3D Avatar Portrait
-│   │   ├── auraos.jpg           # AuraOS Showcase Mockup
-│   │   ├── urlshortener.jpg     # Weather & Shortener Showcase Mockup
-│   │   └── qrattendance.jpg     # QR Attendance ERP Mockup
+├── public/                     # Static assets, mockups, and avatar
 ├── src/
-│   ├── app/
-│   │   ├── layout.tsx           # Root Layout with Font & SEO Schemas
-│   │   ├── globals.css          # Theme Variables & Custom Styles
-│   │   ├── page.tsx             # Main Interactive Landing Page
-│   │   ├── about/page.tsx       # Developer Biography & Philosophy
-│   │   ├── projects/page.tsx    # Filterable Projects Catalog
-│   │   ├── projects/[slug]/     # Deep-Dive Project Case Studies
-│   │   ├── skills/page.tsx      # Interactive Skill Ecosystem
-│   │   ├── experience/page.tsx  # Engineering Timeline
-│   │   ├── education/page.tsx   # Academic Background & Subjects
-│   │   ├── certifications/page.tsx # Verified Credential Cards
-│   │   ├── resume/page.tsx      # Printable & ATS-Friendly CV
-│   │   ├── services/page.tsx    # Specialized Offerings
-│   │   ├── contact/page.tsx     # Editorial Contact Page
-│   │   ├── blog/page.tsx        # Developer Blog & Articles
-│   │   ├── blog/[slug]/page.tsx # Article Reader
-│   │   ├── lab/page.tsx         # Interactive Digital Laboratory
-│   │   ├── achievements/page.tsx# Hackathons & Honors
-│   │   ├── uses/page.tsx        # Developer Workstation & Setup
-│   │   ├── now/page.tsx         # Current Focus & Priorities
-│   │   ├── not-found.tsx        # Custom 404 Page
-│   │   ├── sitemap.ts           # Dynamic XML Sitemap
-│   │   └── robots.ts            # Search Crawlers Robots Rules
-│   ├── components/
-│   │   ├── Navbar.tsx           # Floating Glass Pill Navigation
-│   │   ├── Hero.tsx             # Hero with 3D Visual & Stats
-│   │   ├── InteractiveGrid.tsx  # 3D Perspective Wireframe Room Canvas
-│   │   ├── Marquee.tsx          # Angled Ticker Ribbon
-│   │   ├── ProjectCard.tsx      # Project Showcase Card
-│   │   ├── ProjectFilter.tsx    # Filter & Search Controller
-│   │   ├── SkillCard.tsx        # Skill Proficiency Card
-│   │   ├── SkillGrid.tsx        # Categorized Skill Matrix
-│   │   ├── CommandPalette.tsx   # Ctrl+K Global Search
-│   │   ├── ThemeToggle.tsx      # Light/Dark Theme Switcher
-│   │   ├── ThemeProvider.tsx    # Theme Context & LocalStorage
-│   │   ├── EasterEgg.tsx        # Konami & Adarsh Keystroke Listener
-│   │   └── Footer.tsx           # Editorial Footer
-│   ├── data/
-│   │   ├── profile.ts           # Bio, stats, headline & interests
-│   │   ├── projects.ts          # Verified projects & case studies
-│   │   ├── skills.ts            # Categorized skills & levels
-│   │   ├── experience.ts        # Career timeline & responsibilities
-│   │   ├── education.ts         # Degree, college & coursework
-│   │   ├── certifications.ts    # Certificates & verification
-│   │   ├── services.ts          # Engineering offerings & deliverables
-│   │   ├── blog.ts              # Technical deep-dive articles
-│   │   ├── lab.ts               # Laboratory experiments metadata
-│   │   ├── uses.ts              # Hardware, editor & developer setup
-│   │   ├── now.ts               # Current activities & status
-│   │   └── social.ts            # Configurable social & contact info
-│   └── lib/
-│       └── utils.ts             # Styling & Date Utilities
+│   ├── app/                    # Next.js App Router (30 static & dynamic routes)
+│   │   ├── page.tsx            # Main Landing Page
+│   │   ├── about/              # Bio, philosophy & background
+│   │   ├── projects/           # Projects catalog & deep dives [slug]
+│   │   ├── skills/             # Categorized skill matrix
+│   │   ├── resume/             # ATS printable web CV
+│   │   ├── contact/            # Interactive contact hub
+│   │   ├── lab/                # Interactive cryptography & telemetry lab
+│   │   └── globals.css         # Tailwind tokens & anti-copy styling
+│   ├── components/             # Reusable UI & interactive components
+│   │   ├── Hero.tsx            # Hero section with interactive audio synth & avatar
+│   │   ├── ContentProtection.tsx # Anti-copy, drag & inspection shielding
+│   │   ├── InteractiveGrid.tsx # 3D room canvas wireframe
+│   │   ├── Navbar.tsx          # Frosted pill navigation bar
+│   │   └── Footer.tsx          # Clean editorial footer
+│   └── data/                   # Centralized content data files
+│       ├── profile.ts          # Bio, contact, headlines & stats
+│       ├── projects.ts         # Showcase projects metadata
+│       ├── skills.ts           # Core engineering skills
+│       └── social.ts           # Social profile handles & links
 ```
 
 ---
 
-## 🚀 Getting Started
+## 💻 Quick Start & Local Setup
 
-### 1. Prerequisites
-- [Node.js](https://nodejs.org/) (version 18+ or 20+)
-- `npm` (bundled with Node.js)
-
-### 2. Installation
+### 1. Clone the Repository
 ```bash
-# Clone the repository
-git clone https://github.com/iamadarss/portfolio.git
-cd portfolio
+git clone https://github.com/iamadarss/iamadarss.git
+cd iamadarss
+```
 
-# Install dependencies
+### 2. Install Dependencies
+```bash
 npm install
 ```
 
-### 3. Environment Configuration
-Copy `.env.example` to create your local environment file:
-```bash
-cp .env.example .env.local
-```
-
-Configured variables:
-```env
-NEXT_PUBLIC_SITE_URL=https://iamadarss.vercel.app/
-NEXT_PUBLIC_GITHUB_USERNAME=iamadarss
-NEXT_PUBLIC_LINKEDIN_URL=https://linkedin.com/in/iamadarss
-NEXT_PUBLIC_EMAIL=adarshpatel8738@gmail.com
-```
-
-### 4. Running the Development Server
+### 3. Run Development Server
 ```bash
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit `http://localhost:3000` in your browser to explore the portfolio.
 
----
-
-## 📦 Production Build & Testing
-
-Verify TypeScript compilation, linting, and static generation:
+### 4. Build for Production
 ```bash
-# Run lint check
-npm run lint
-
-# Build optimized production bundle
 npm run build
-
-# Preview production build locally
 npm run start
 ```
 
 ---
 
-## 🌐 Deployment to Vercel
+## 📬 Connect With Me
 
-1. Push your code to your GitHub account: `https://github.com/iamadarss/portfolio`.
-2. Connect your GitHub repository to [Vercel](https://vercel.com/new).
-3. Under Environment Variables, add the values from `.env.example`.
-4. Deploy! Next.js will automatically generate optimized serverless assets and static pages.
-
----
-
-## 📬 Contact & Connect
-
-- **Email**: [adarshpatel8738@gmail.com](mailto:adarshpatel8738@gmail.com)
-- **GitHub**: [@iamadarss](https://github.com/iamadarss)
-- **LinkedIn**: [Adarsh Patel](https://linkedin.com/in/iamadarss)
-- **Instagram**: [@iamadarss](https://instagram.com/iamadarss)
-- **Phone**: +91 92773 10761
+- 🌐 **Portfolio**: [iamadarss.vercel.app](https://iamadarss.vercel.app)
+- 💼 **LinkedIn**: [linkedin.com/in/iamadarss](https://linkedin.com/in/iamadarss)
+- 📸 **Instagram**: [@iamadarss](https://instagram.com/iamadarss)
+- 💻 **GitHub**: [github.com/iamadarss](https://github.com/iamadarss)
+- ✉️ **Email**: [adarshpatel8738@gmail.com](mailto:adarshpatel8738@gmail.com)
 
 ---
 
-## ⚖️ License
-
-Designed and developed by **Adarsh Patel**.  
-Released under the [MIT License](LICENSE).
-
-#   i a m a d a r s s  
- 
+<div align="center">
+  <p>© 2026 Adarsh Patel. Crafted with passion, code & creativity.</p>
+</div>
