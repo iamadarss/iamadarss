@@ -220,3 +220,5 @@ npm run start
 Designed and developed by **Adarsh Patel**.  
 Released under the [MIT License](LICENSE).
 
+#   i a m a d a r s s  
+ 
