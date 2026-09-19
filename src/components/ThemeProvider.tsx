@@ -20,11 +20,28 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMounted(true);
-    const savedTheme = localStorage.getItem("adarsh-theme") as Theme | null;
+    const root = document.documentElement;
+    const isAlreadyDark = root.classList.contains("dark");
+    const savedTheme = (typeof window !== "undefined" ? localStorage.getItem("adarsh-theme") : null) as Theme | null;
+
     if (savedTheme) {
       setThemeState(savedTheme);
+      const isDark =
+        savedTheme === "dark" ||
+        (savedTheme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      if (isDark) {
+        root.classList.add("dark");
+        setResolvedTheme("dark");
+      } else {
+        root.classList.remove("dark");
+        setResolvedTheme("light");
+      }
+    } else if (isAlreadyDark) {
+      setThemeState("dark");
+      setResolvedTheme("dark");
     } else {
-      setThemeState("light"); // Default to warm light mode matching visual reference
+      setThemeState("light");
+      setResolvedTheme("light");
     }
   }, []);
 
@@ -34,29 +51,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = document.documentElement;
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-    const applyTheme = () => {
-      let isDark = false;
+    const listener = (e: MediaQueryListEvent) => {
       if (theme === "system") {
-        isDark = mediaQuery.matches;
-      } else {
-        isDark = theme === "dark";
-      }
-
-      if (isDark) {
-        root.classList.add("dark");
-        setResolvedTheme("dark");
-      } else {
-        root.classList.remove("dark");
-        setResolvedTheme("light");
-      }
-    };
-
-    applyTheme();
-    localStorage.setItem("adarsh-theme", theme);
-
-    const listener = () => {
-      if (theme === "system") {
-        applyTheme();
+        if (e.matches) {
+          root.classList.add("dark");
+          setResolvedTheme("dark");
+        } else {
+          root.classList.remove("dark");
+          setResolvedTheme("light");
+        }
       }
     };
 
@@ -66,11 +69,39 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
+    const root = document.documentElement;
+    let isDark = false;
+    if (newTheme === "system") {
+      isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    } else {
+      isDark = newTheme === "dark";
+    }
+
+    if (isDark) {
+      root.classList.add("dark");
+      setResolvedTheme("dark");
+    } else {
+      root.classList.remove("dark");
+      setResolvedTheme("light");
+    }
+    localStorage.setItem("adarsh-theme", newTheme);
   };
 
   const toggleTheme = () => {
-    const nextTheme = resolvedTheme === "light" ? "dark" : "light";
-    setThemeState(nextTheme);
+    const root = document.documentElement;
+    // Check actual DOM state or resolvedTheme
+    const currentIsDark = root.classList.contains("dark") || resolvedTheme === "dark";
+    const nextResolved = currentIsDark ? "light" : "dark";
+
+    if (nextResolved === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+
+    localStorage.setItem("adarsh-theme", nextResolved);
+    setResolvedTheme(nextResolved);
+    setThemeState(nextResolved);
   };
 
   return (

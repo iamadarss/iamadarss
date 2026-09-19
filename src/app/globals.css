@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
+    color-scheme: light;
     --bg: #E8E6E7;
     --fg: #151515;
     --orange: #F4512A;
@@ -9,15 +12,18 @@
     --orange-glow: rgba(244, 81, 42, 0.25);
     --card-bg: #FFF9F2;
     --card-border: rgba(21, 21, 21, 0.08);
-    --glass-bg: rgba(255, 249, 242, 0.75);
-    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-bg: rgba(255, 249, 242, 0.82);
+    --glass-border: rgba(255, 255, 255, 0.7);
     --muted: #777777;
     --muted-bg: rgba(21, 21, 21, 0.04);
     --grid-line: rgba(21, 21, 21, 0.07);
     --wireframe: rgba(21, 21, 21, 0.12);
+    --mouse-x: 50vw;
+    --mouse-y: 50vh;
   }
 
   .dark {
+    color-scheme: dark;
     --bg: #0D0D11;
     --fg: #F4F4F6;
     --orange: #F4512A;
@@ -179,4 +185,68 @@
     border: 1px solid #e5e7eb !important;
     background: #ffffff !important;
   }
+}
+
+/* 3D Tilt Card & Cursor Specular Glare */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.cursor-spotlight-layer {
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh),
+    rgba(244, 81, 42, 0.075),
+    transparent 70%
+  );
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.dark .cursor-spotlight-layer {
+  background: radial-gradient(
+    700px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh),
+    rgba(244, 81, 42, 0.12),
+    transparent 65%
+  );
+}
+
+/* Cursor Shockwave Ripple */
+@keyframes cursor-ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.8);
+    opacity: 0;
+  }
+}
+
+.animate-cursor-ripple {
+  animation: cursor-ripple 0.6s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+/* Ambient Pulse Glow */
+@keyframes cyber-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.05);
+  }
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse 4s ease-in-out infinite;
+}
+
+/* Smooth Magnetic Transition */
+.transition-magnetic {
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease;
 }

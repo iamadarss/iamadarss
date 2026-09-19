@@ -5,6 +5,7 @@ import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { CommandPalette } from "./CommandPalette";
 import { CustomCursor } from "./CustomCursor";
+import { CursorAmbientLight } from "./CursorAmbientLight";
 import { ScrollProgress } from "./ScrollProgress";
 import { EasterEgg } from "./EasterEgg";
 
@@ -20,10 +21,11 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ScrollProgress />
+      <CursorAmbientLight />
       <CustomCursor />
       <EasterEgg />
-      <Navbar onOpenCommandPalette={() => setCommandPaletteOpen(true)} />
-      <main className="flex-1 w-full min-h-screen relative">{children}</main>
+      <Navbar />
+      <main className="flex-1 w-full min-h-screen relative z-10">{children}</main>
       <Footer />
       <CommandPalette
         isOpen={commandPaletteOpen}

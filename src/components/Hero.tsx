@@ -94,16 +94,21 @@ export function Hero() {
         {/* CENTER COLUMN: 3D Developer Character Avatar with Depth & Parallax */}
         <div className="lg:col-span-4 flex items-center justify-center relative order-1 lg:order-2 my-2 lg:my-0">
           <div
+            data-card-hover="true"
+            data-cursor-text="ADARSH"
             style={{
-              transform: `translate3d(${mousePos.x * 0.8}px, ${mousePos.y * 0.8}px, 0)`,
+              transform: `translate3d(${mousePos.x * 1.1}px, ${mousePos.y * 1.1}px, 0) perspective(1000px) rotateY(${(mousePos.x * 0.4).toFixed(1)}deg) rotateX(${(-mousePos.y * 0.4).toFixed(1)}deg)`,
             }}
-            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center transition-transform duration-200 ease-out"
+            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center transition-transform duration-150 ease-out preserve-3d"
           >
             {/* Ambient Background Circle Glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#F4512A]/20 via-[#F4512A]/5 to-transparent rounded-full filter blur-2xl transform scale-90 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#F4512A]/30 via-[#F4512A]/10 to-transparent rounded-full filter blur-2xl transform scale-95 pointer-events-none animate-cyber-pulse" />
+
+            {/* Rotating Cyber Outer Ring */}
+            <div className="absolute inset-0 rounded-full border border-dashed border-[#F4512A]/30 pointer-events-none animate-[spin_30s_linear_infinite]" />
 
             {/* 3D Character Portrait Image */}
-            <div className="relative w-full h-full rounded-full p-2 overflow-hidden flex items-center justify-center">
+            <div className="relative w-[90%] h-[90%] rounded-full p-2 overflow-hidden flex items-center justify-center border-2 border-[#F4512A]/20 dark:border-white/10 shadow-2xl bg-white/30 dark:bg-black/40 backdrop-blur-sm">
               <Image
                 src="/images/adarsh_hero.jpg"
                 alt="Adarsh Patel — 3D Developer Character Avatar"
@@ -115,7 +120,7 @@ export function Hero() {
             </div>
 
             {/* Floating Security Badge */}
-            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 glass-card px-3 py-1.5 rounded-full flex items-center gap-1.5 text-[11px] font-mono font-semibold shadow-lg text-[#151515] dark:text-zinc-200 border border-black/10 dark:border-white/15 animate-bounce duration-1000">
+            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 glass-card px-3.5 py-1.5 rounded-full flex items-center gap-1.5 text-[11px] font-mono font-semibold shadow-xl text-[#151515] dark:text-zinc-100 border border-black/10 dark:border-white/20 hover:scale-105 transition-transform">
               <ShieldCheck className="w-3.5 h-3.5 text-[#F4512A]" />
               <span>Cyber & Code</span>
             </div>
