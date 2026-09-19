@@ -1,26 +1,182 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #E8E6E7;
+    --fg: #151515;
+    --orange: #F4512A;
+    --orange-hover: #e0441e;
+    --orange-glow: rgba(244, 81, 42, 0.25);
+    --card-bg: #FFF9F2;
+    --card-border: rgba(21, 21, 21, 0.08);
+    --glass-bg: rgba(255, 249, 242, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --muted: #777777;
+    --muted-bg: rgba(21, 21, 21, 0.04);
+    --grid-line: rgba(21, 21, 21, 0.07);
+    --wireframe: rgba(21, 21, 21, 0.12);
+  }
+
+  .dark {
+    --bg: #0D0D11;
+    --fg: #F4F4F6;
+    --orange: #F4512A;
+    --orange-hover: #ff603a;
+    --orange-glow: rgba(244, 81, 42, 0.35);
+    --card-bg: #16161C;
+    --card-border: rgba(255, 255, 255, 0.09);
+    --glass-bg: rgba(22, 22, 28, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --muted: #9CA3AF;
+    --muted-bg: rgba(255, 255, 255, 0.05);
+    --grid-line: rgba(255, 255, 255, 0.05);
+    --wireframe: rgba(255, 255, 255, 0.15);
+  }
+
+  * {
+    border-color: var(--card-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg);
+    color: var(--fg);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5c2c4;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2a2a32;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}
+
+/* Glassmorphism Classes */
+.glass-nav {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.07), 0 0 1px 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+.dark .glass-nav {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+}
+
+.dark .glass-card {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Marquee Animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation-duration: 60s;
+  }
+}
+
+/* Text Outline Effect (Inspired by the Reference Image "I'M BORN TO INNOVATE SOLUTIONS!") */
+.text-outline-hero {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--orange);
+  text-stroke: 1.5px var(--orange);
+  opacity: 0.85;
+}
+
+.text-outline-dark {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(21, 21, 21, 0.25);
+  text-stroke: 1.5px rgba(21, 21, 21, 0.25);
+}
+
+.dark .text-outline-dark {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+  text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+}
+
+/* Perspective Grid Illusion */
+.perspective-room {
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+}
+
+/* Signature Font */
+@font-face {
+  font-family: 'SignatureFont';
+  src: local('Brush Script MT'), local('Caveat'), local('cursive');
+  font-display: swap;
+}
+
+.font-signature {
+  font-family: 'SignatureFont', cursive;
+}
+
+/* Print Styles for /resume */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .glass-card {
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+    background: #ffffff !important;
+  }
 }
