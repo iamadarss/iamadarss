@@ -136,19 +136,16 @@
 .text-outline-hero {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--orange);
-  text-stroke: 1.5px var(--orange);
   opacity: 0.85;
 }
 
 .text-outline-dark {
   color: transparent;
   -webkit-text-stroke: 1.5px rgba(21, 21, 21, 0.25);
-  text-stroke: 1.5px rgba(21, 21, 21, 0.25);
 }
 
 .dark .text-outline-dark {
   -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
-  text-stroke: 1.5px rgba(255, 255, 255, 0.25);
 }
 
 /* Perspective Grid Illusion */
