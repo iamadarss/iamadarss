@@ -6,6 +6,8 @@ import Link from "next/link";
 import { profile } from "@/data/profile";
 import { InteractiveGrid } from "./InteractiveGrid";
 import { Marquee } from "./Marquee";
+import { Magnetic } from "./Magnetic";
+import { CyberText } from "./CyberText";
 import { ArrowDownRight, ArrowUpRight, FileDown, ShieldCheck, Terminal } from "lucide-react";
 
 export function Hero() {
@@ -64,8 +66,10 @@ export function Hero() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#151515] dark:text-white uppercase leading-none">
-              ADARSH <br />
-              <span className="text-[#F4512A]">PATEL</span>
+              <CyberText text="ADARSH" /> <br />
+              <span className="text-[#F4512A]">
+                <CyberText text="PATEL" />
+              </span>
             </h1>
 
             {/* Rotating Role Pill */}
@@ -108,7 +112,11 @@ export function Hero() {
             <div className="absolute inset-0 rounded-full border border-dashed border-[#F4512A]/30 pointer-events-none animate-[spin_30s_linear_infinite]" />
 
             {/* 3D Character Portrait Image */}
-            <div className="relative w-[90%] h-[90%] rounded-full p-2 overflow-hidden flex items-center justify-center border-2 border-[#F4512A]/20 dark:border-white/10 shadow-2xl bg-white/30 dark:bg-black/40 backdrop-blur-sm">
+            <div
+              suppressHydrationWarning
+              data-no-extension="true"
+              className="relative w-[90%] h-[90%] rounded-full p-2 overflow-hidden flex items-center justify-center border-2 border-[#F4512A]/20 dark:border-white/10 shadow-2xl bg-white/30 dark:bg-black/40 backdrop-blur-sm"
+            >
               <Image
                 src="/images/adarsh_hero.jpg"
                 alt="Adarsh Patel — 3D Developer Character Avatar"
@@ -143,29 +151,35 @@ export function Hero() {
 
           {/* Primary Action Buttons */}
           <div className="flex flex-wrap items-center gap-3 lg:justify-end pt-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#151515] dark:bg-white text-white dark:text-[#151515] hover:bg-[#F4512A] dark:hover:bg-[#F4512A] dark:hover:text-white shadow-md hover:shadow-lg transition-all"
-            >
-              <span>Get in touch</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
+            <Magnetic strength={0.35} radius={70}>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#151515] dark:bg-white text-white dark:text-[#151515] hover:bg-[#F4512A] dark:hover:bg-[#F4512A] dark:hover:text-white shadow-md hover:shadow-lg transition-all cursor-pointer"
+              >
+                <span>Get in touch</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </Magnetic>
 
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4512A] text-white hover:bg-[#e0441e] shadow-md shadow-[#F4512A]/25 transition-all"
-            >
-              <span>View Projects</span>
-              <ArrowDownRight className="w-4 h-4" />
-            </Link>
+            <Magnetic strength={0.3} radius={70}>
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#F4512A] text-white hover:bg-[#e0441e] shadow-md shadow-[#F4512A]/25 transition-all cursor-pointer"
+              >
+                <span>View Projects</span>
+                <ArrowDownRight className="w-4 h-4" />
+              </Link>
+            </Magnetic>
 
-            <Link
-              href="/resume"
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium border border-black/15 dark:border-white/20 hover:border-[#F4512A] bg-white/60 dark:bg-zinc-800/60 text-[#151515] dark:text-zinc-200 backdrop-blur-sm transition-all"
-            >
-              <FileDown className="w-3.5 h-3.5 text-[#F4512A]" />
-              <span>Resume</span>
-            </Link>
+            <Magnetic strength={0.25} radius={60}>
+              <Link
+                href="/resume"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-medium border border-black/15 dark:border-white/20 hover:border-[#F4512A] bg-white/60 dark:bg-zinc-800/60 text-[#151515] dark:text-zinc-200 backdrop-blur-sm transition-all cursor-pointer"
+              >
+                <FileDown className="w-3.5 h-3.5 text-[#F4512A]" />
+                <span>Resume</span>
+              </Link>
+            </Magnetic>
           </div>
         </div>
       </div>

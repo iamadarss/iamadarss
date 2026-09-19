@@ -17,6 +17,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { Magnetic } from "./Magnetic";
 
 interface NavItem {
   name: string;
@@ -127,22 +128,26 @@ export function Navbar() {
             <ThemeToggle />
 
             {/* Resume Button */}
-            <Link
-              href="/resume"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#16161C]/85 hover:bg-white dark:hover:bg-zinc-800 text-[#151515] dark:text-zinc-200 backdrop-blur-md transition-all shadow-sm hover:border-[#F4512A]/40 cursor-pointer"
-            >
-              <FileText className="w-3.5 h-3.5 text-[#F4512A]" />
-              <span>Resume</span>
-            </Link>
+            <Magnetic strength={0.3} radius={60}>
+              <Link
+                href="/resume"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold rounded-full border border-black/10 dark:border-white/10 bg-white/80 dark:bg-[#16161C]/85 hover:bg-white dark:hover:bg-zinc-800 text-[#151515] dark:text-zinc-200 backdrop-blur-md transition-all shadow-sm hover:border-[#F4512A]/40 cursor-pointer"
+              >
+                <FileText className="w-3.5 h-3.5 text-[#F4512A]" />
+                <span>Resume</span>
+              </Link>
+            </Magnetic>
 
             {/* Contact CTA Button */}
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#151515] dark:bg-white text-white dark:text-[#151515] hover:bg-[#F4512A] dark:hover:bg-[#F4512A] dark:hover:text-white transition-all shadow-sm hover:shadow-md active:scale-95 cursor-pointer"
-            >
-              <span>Contact</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </Link>
+            <Magnetic strength={0.35} radius={70}>
+              <Link
+                href="/contact"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#151515] dark:bg-white text-white dark:text-[#151515] hover:bg-[#F4512A] dark:hover:bg-[#F4512A] dark:hover:text-white transition-all shadow-sm hover:shadow-md active:scale-95 cursor-pointer"
+              >
+                <span>Contact</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
+            </Magnetic>
 
             {/* Mobile Menu Toggle Button */}
             <button
