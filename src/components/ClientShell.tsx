@@ -9,6 +9,7 @@ import { CursorAmbientLight } from "./CursorAmbientLight";
 import { FloatingCyberElements } from "./FloatingCyberElements";
 import { ScrollProgress } from "./ScrollProgress";
 import { EasterEgg } from "./EasterEgg";
+import { ContentProtection } from "./ContentProtection";
 
 export function ClientShell({ children }: { children: React.ReactNode }) {
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
@@ -38,6 +39,7 @@ export function ClientShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ScrollProgress />
+      <ContentProtection />
       <CursorAmbientLight />
       <FloatingCyberElements />
       <CustomCursor />

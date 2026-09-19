@@ -169,10 +169,9 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-6">
-            <span>Press <kbd className="px-1.5 py-0.5 rounded bg-black/5 dark:bg-white/10 text-zinc-800 dark:text-zinc-200">⌘K</kbd> for Command Palette</span>
             <button
               onClick={scrollToTop}
-              className="hover:text-[#F4512A] transition-colors flex items-center gap-1"
+              className="hover:text-[#F4512A] transition-colors flex items-center gap-1 cursor-pointer"
             >
               <span>Back to Top ↑</span>
             </button>

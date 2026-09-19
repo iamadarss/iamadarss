@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { profile } from "@/data/profile";
@@ -8,11 +8,65 @@ import { InteractiveGrid } from "./InteractiveGrid";
 import { Marquee } from "./Marquee";
 import { Magnetic } from "./Magnetic";
 import { CyberText } from "./CyberText";
-import { ArrowDownRight, ArrowUpRight, FileDown, ShieldCheck, Terminal } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, FileDown, ShieldCheck, Terminal, Zap, Sparkles } from "lucide-react";
+
+// Web Audio API sci-fi synthesizer (no external mp3 needed, zero latency, 100% reliable)
+function playCyberPowerSound() {
+  try {
+    const AudioContextClass =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const ctx = new AudioContextClass();
+    const now = ctx.currentTime;
+
+    // Harmonic power-up arpeggio: C5, E5, G5, C6, G6
+    const freqs = [523.25, 659.25, 783.99, 1046.5, 1567.98];
+    freqs.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(freq, now + idx * 0.045);
+
+      gain.gain.setValueAtTime(0, now + idx * 0.045);
+      gain.gain.linearRampToValueAtTime(0.12, now + idx * 0.045 + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.045 + 0.4);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now + idx * 0.045);
+      osc.stop(now + idx * 0.045 + 0.45);
+    });
+
+    // Futuristic sub-bass punch
+    const subOsc = ctx.createOscillator();
+    const subGain = ctx.createGain();
+    subOsc.type = "triangle";
+    subOsc.frequency.setValueAtTime(160, now);
+    subOsc.frequency.exponentialRampToValueAtTime(45, now + 0.35);
+
+    subGain.gain.setValueAtTime(0.2, now);
+    subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+
+    subOsc.connect(subGain);
+    subGain.connect(ctx.destination);
+
+    subOsc.start(now);
+    subOsc.stop(now + 0.4);
+  } catch {
+    // AudioContext blocked by user agent
+  }
+}
 
 export function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isPoweredUp, setIsPoweredUp] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+  const [powerBadge, setPowerBadge] = useState<string | null>(null);
+  const powerTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,6 +81,32 @@ export function Hero() {
     const x = (clientX - innerWidth / 2) / 30;
     const y = (clientY - innerHeight / 2) / 30;
     setMousePos({ x, y });
+  };
+
+  const handleAvatarClick = () => {
+    playCyberPowerSound();
+
+    if (typeof window !== "undefined" && navigator.vibrate) {
+      navigator.vibrate([40, 70, 40]);
+    }
+
+    const nextCount = clickCount + 1;
+    setClickCount(nextCount);
+    setIsPoweredUp(true);
+
+    const messages = [
+      "⚡ OVERDRIVE ACTIVATED // CODE LEVEL: 100",
+      "🚀 SYSTEM SUPERCHARGED // READY TO BUILD",
+      "🔥 MAXIMUM VELOCITY // FULL POWER",
+      "👑 ADARSH PATEL // UNSTOPPABLE ENGINEER",
+    ];
+    setPowerBadge(messages[(nextCount - 1) % messages.length]);
+
+    if (powerTimeoutRef.current) clearTimeout(powerTimeoutRef.current);
+    powerTimeoutRef.current = setTimeout(() => {
+      setIsPoweredUp(false);
+      setPowerBadge(null);
+    }, 2400);
   };
 
   return (
@@ -80,7 +160,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Vertical Key Stats (Exact Reference Style: Bold Orange Numbers + Clean Labels) */}
+          {/* Vertical Key Stats */}
           <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 sm:gap-6 pt-2 border-t border-black/10 dark:border-white/10">
             {profile.stats.slice(0, 3).map((stat, idx) => (
               <div key={idx} className="flex flex-col">
@@ -95,27 +175,49 @@ export function Hero() {
           </div>
         </div>
 
-        {/* CENTER COLUMN: 3D Developer Character Avatar with Depth & Parallax */}
+        {/* CENTER COLUMN: 3D Developer Character Avatar with Interactive Sound & Power Click */}
         <div className="lg:col-span-4 flex items-center justify-center relative order-1 lg:order-2 my-2 lg:my-0">
           <div
+            onClick={handleAvatarClick}
             data-card-hover="true"
-            data-cursor-text="ADARSH"
+            data-cursor-text={isPoweredUp ? "POWER!" : "CLICK ME"}
             style={{
-              transform: `translate3d(${mousePos.x * 1.1}px, ${mousePos.y * 1.1}px, 0) perspective(1000px) rotateY(${(mousePos.x * 0.4).toFixed(1)}deg) rotateX(${(-mousePos.y * 0.4).toFixed(1)}deg)`,
+              transform: `translate3d(${mousePos.x * 1.1}px, ${mousePos.y * 1.1}px, 0) perspective(1000px) rotateY(${(
+                mousePos.x * 0.4
+              ).toFixed(1)}deg) rotateX(${(-mousePos.y * 0.4).toFixed(1)}deg)`,
             }}
-            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center transition-transform duration-150 ease-out preserve-3d"
+            className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center transition-transform duration-150 ease-out preserve-3d cursor-pointer group"
           >
             {/* Ambient Background Circle Glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#F4512A]/30 via-[#F4512A]/10 to-transparent rounded-full filter blur-2xl transform scale-95 pointer-events-none animate-cyber-pulse" />
+            <div
+              className={`absolute inset-0 bg-gradient-to-tr from-[#F4512A]/30 via-[#F4512A]/10 to-transparent rounded-full filter blur-2xl transform transition-all duration-500 pointer-events-none ${
+                isPoweredUp ? "scale-125 opacity-100 from-[#F4512A]/70 via-[#ffaa00]/40" : "scale-95 animate-cyber-pulse"
+              }`}
+            />
 
             {/* Rotating Cyber Outer Ring */}
-            <div className="absolute inset-0 rounded-full border border-dashed border-[#F4512A]/30 pointer-events-none animate-[spin_30s_linear_infinite]" />
+            <div
+              className={`absolute inset-0 rounded-full border border-dashed transition-all duration-300 pointer-events-none ${
+                isPoweredUp
+                  ? "border-[#F4512A] scale-110 animate-[spin_4s_linear_infinite]"
+                  : "border-[#F4512A]/30 animate-[spin_30s_linear_infinite]"
+              }`}
+            />
 
-            {/* 3D Character Portrait Image */}
+            {/* Shockwave Blast Ring (when clicked) */}
+            {isPoweredUp && (
+              <div className="absolute inset-0 rounded-full border-2 border-[#F4512A] animate-ping duration-1000 pointer-events-none" />
+            )}
+
+            {/* 3D Character Portrait Image with Click 360 Spin */}
             <div
               suppressHydrationWarning
               data-no-extension="true"
-              className="relative w-[90%] h-[90%] rounded-full p-2 overflow-hidden flex items-center justify-center border-2 border-[#F4512A]/20 dark:border-white/10 shadow-2xl bg-white/30 dark:bg-black/40 backdrop-blur-sm"
+              className={`relative w-[90%] h-[90%] rounded-full p-2 overflow-hidden flex items-center justify-center border-2 shadow-2xl bg-white/30 dark:bg-black/40 backdrop-blur-sm transition-all duration-700 ease-out ${
+                isPoweredUp
+                  ? "border-[#F4512A] shadow-[0_0_50px_rgba(244,81,42,0.6)] rotate-[360deg] scale-105"
+                  : "border-[#F4512A]/20 dark:border-white/10 group-hover:scale-105"
+              }`}
             >
               <Image
                 src="/images/adarsh_hero.jpg"
@@ -123,15 +225,28 @@ export function Hero() {
                 fill
                 priority
                 sizes="(max-width: 768px) 280px, 384px"
-                className="object-cover object-top drop-shadow-2xl rounded-full transform hover:scale-105 transition-transform duration-500 ease-out"
+                className="object-cover object-top drop-shadow-2xl rounded-full select-none pointer-events-none"
               />
             </div>
 
             {/* Floating Security Badge */}
-            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 glass-card px-3.5 py-1.5 rounded-full flex items-center gap-1.5 text-[11px] font-mono font-semibold shadow-xl text-[#151515] dark:text-zinc-100 border border-black/10 dark:border-white/20 hover:scale-105 transition-transform">
+            <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 glass-card px-3.5 py-1.5 rounded-full flex items-center gap-1.5 text-[11px] font-mono font-semibold shadow-xl text-[#151515] dark:text-zinc-100 border border-black/10 dark:border-white/20 group-hover:scale-110 transition-transform">
               <ShieldCheck className="w-3.5 h-3.5 text-[#F4512A]" />
               <span>Cyber & Code</span>
             </div>
+
+            {/* Interactive "Click to Power Up" / "Overdrive" Floating Toast */}
+            {powerBadge ? (
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-[#151515] dark:bg-black text-white border border-[#F4512A] shadow-xl text-[11px] font-mono font-bold tracking-wider whitespace-nowrap animate-in fade-in zoom-in-90 flex items-center gap-1.5 z-30">
+                <Zap className="w-3.5 h-3.5 text-[#F4512A] animate-bounce" />
+                <span className="text-[#F4512A]">{powerBadge}</span>
+              </div>
+            ) : (
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 px-2.5 py-1 rounded-full bg-black/70 text-white text-[9px] font-mono uppercase tracking-widest pointer-events-none flex items-center gap-1">
+                <Sparkles className="w-2.5 h-2.5 text-[#F4512A]" />
+                <span>Tap to Power Up</span>
+              </div>
+            )}
           </div>
         </div>
 
